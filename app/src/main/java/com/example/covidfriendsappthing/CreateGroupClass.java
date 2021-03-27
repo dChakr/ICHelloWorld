@@ -56,10 +56,10 @@ public class CreateGroupClass extends AppCompatActivity {
         CovidStatus status = getCovidStatus(person);
 
         switch(status) {
-            case HAS_COVID:
+            case COVID_POSITIVE:
                 person.setImageResource(R.drawable.covid_positive);
                 break;
-            case IN_CONTACT_WITH_COVID:
+            case CONTACT_WITH_COVID:
                 person.setImageResource(R.drawable.contact_covid);
                 break;
             default:
@@ -68,12 +68,7 @@ public class CreateGroupClass extends AppCompatActivity {
     }
 
     private CovidStatus getCovidStatus(ImageButton person) {
-        return CovidStatus.NO_COVID;
+        return CovidStatus.COVID_NEGATIVE;
     }
 
-    private enum CovidStatus {
-        HAS_COVID,
-        NO_COVID,
-        IN_CONTACT_WITH_COVID;
-    }
 }
