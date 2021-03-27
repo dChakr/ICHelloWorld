@@ -7,87 +7,71 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="412dp"
-        android:layout_height="41dp"
-        android:background="#C0A7ED"
-        android:gravity="center"
-        android:text="PandemicPals"
-        android:textColor="#341963"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginLeft="51dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginRight="51dp"
         android:text="Welcome!"
         android:textColor="#341963"
         android:textSize="70sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/settings_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.906" />
 
     <Button
-        android:id="@+id/covid_settings"
+        android:id="@+id/settings_button"
         android:layout_width="331dp"
         android:layout_height="73dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="16dp"
         android:linksClickable="false"
         android:onClick="goToCovidSettings"
         android:text="Covid Settings"
         android:textColor="#341963"
         android:textSize="20sp"
         app:backgroundTint="#C0A7ED"
-        app:layout_constraintBottom_toTopOf="@+id/create_groups"
+        app:layout_constraintBottom_toTopOf="@+id/group_button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/create_groups"
+        android:id="@+id/group_button"
         android:layout_width="331dp"
         android:layout_height="73dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="12dp"
         android:text="create group"
         android:textColor="#341963"
         android:textSize="20sp"
         app:backgroundTint="#C0A7ED"
-        app:layout_constraintBottom_toTopOf="@+id/my_groups"
+        app:layout_constraintBottom_toTopOf="@+id/my_groups_button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/my_groups"
+        android:id="@+id/my_groups_button"
         android:layout_width="331dp"
         android:layout_height="73dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="40dp"
         android:text="my groups"
         android:textColor="#341963"
         android:textSize="20sp"
         app:backgroundTint="#C0A7ED"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="282dp"
-        android:layout_height="264dp"
-        android:layout_marginStart="79dp"
-        android:layout_marginLeft="79dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/covid_settings"
+        android:id="@+id/imageView2"
+        android:layout_width="239dp"
+        android:layout_height="210dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989"
         app:srcCompat="@drawable/logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

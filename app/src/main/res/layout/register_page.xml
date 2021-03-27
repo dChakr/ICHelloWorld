@@ -4,4 +4,119 @@
     android:layout_height="match_parent"
     android:id="@+id/register_page">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="414dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/purple_text_colour"
+            android:gravity="center"
+            android:text="Register with Us"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/register_name"
+            android:layout_width="85dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="fill_vertical"
+            android:text="Name: "
+            android:textColor="@color/purple_text_colour"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/reg_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true" />
+
+        <TextView
+            android:id="@+id/reg_password"
+            android:layout_width="111dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="fill_vertical"
+            android:text="Password: "
+            android:textColor="@color/purple_text_colour"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Password"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true" />
+
+        <TextView
+            android:id="@+id/reg_email"
+            android:layout_width="85dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="fill_vertical"
+            android:text="Email: "
+            android:textColor="@color/purple_text_colour"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/user_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true" />
+
+        <TextView
+            android:id="@+id/reg_phone"
+            android:layout_width="161dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="fill_vertical"
+            android:text="Phone Number: "
+            android:textColor="@color/purple_text_colour"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:selectAllOnFocus="true" />
+
+        <Button
+            android:id="@+id/settings_button"
+            android:layout_width="331dp"
+            android:layout_height="73dp"
+            android:layout_gravity="center"
+            android:linksClickable="false"
+            android:text="Register"
+            android:textColor="#341963"
+            android:textSize="20sp"
+            android:backgroundTint="#C0A7ED" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

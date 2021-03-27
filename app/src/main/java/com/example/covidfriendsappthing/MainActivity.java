@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.view.View.OnClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,31 +15,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button settings = findViewById(R.id.covid_settings);
-
-        System.out.println(settings);
+        Button settings = (Button) findViewById(R.id.settings_button);
 
         //add the onClick listener
-        settings.setOnClickListener(view -> {
-            Intent isolatingIntent = new Intent(MainActivity.this, CovidSettingsActivity.class);
+        settings.setOnClickListener(new OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent settingsIntent = new Intent(MainActivity.this, CovidSettingsActivity.class);
 
-            startActivity(isolatingIntent);
+                startActivity(settingsIntent);
+            }
         });
 
-        Button newGroup = findViewById(R.id.create_groups);
+        Button newGroup = (Button) findViewById(R.id.group_button);
 
-        newGroup.setOnClickListener(v -> {
-            Intent isolatingIntent1 = new Intent(MainActivity.this, CreateGroupClass.class);
+        newGroup.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newGroupIntent = new Intent(MainActivity.this, CreateGroupClass.class);
 
-            startActivity(isolatingIntent1);
+                startActivity(newGroupIntent);
+            }
         });
 
-        Button myGroups = findViewById(R.id.my_groups);
+        Button myGroups = (Button) findViewById(R.id.my_groups_button);
 
-        myGroups.setOnClickListener(v -> {
-            Intent isolatingIntent2 = new Intent(MainActivity.this, MyGroupsClass.class);
+        myGroups.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myGroupsIntent = new Intent(MainActivity.this, MyGroupsClass.class);
 
-            startActivity(isolatingIntent2);
+                startActivity(myGroupsIntent);
+            }
         });
     }
 }

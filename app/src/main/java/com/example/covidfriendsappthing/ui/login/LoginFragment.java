@@ -1,5 +1,6 @@
 package com.example.covidfriendsappthing.ui.login;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
