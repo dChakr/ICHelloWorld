@@ -27,7 +27,7 @@
         android:scaleType="fitStart"
         app:layout_constraintBottom_toTopOf="@+id/Person5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/plus" />
+        android:src="@drawable/plus" />
 
     <ImageButton
         android:id="@+id/Person3"
