@@ -1,6 +1,9 @@
 package com.example.covidfriendsappthing;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -24,7 +27,12 @@ public class FriendsClass extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter
                 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, friends);
 
-        ListView listView = findViewById(R.id.friends_list);
+        ListView listView = (ListView) findViewById (R.id.friendlist);
         listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+        Intent myGroupsIntent = new Intent(FriendsClass.this, CreateGroupClass.class);
+
+        startActivity(myGroupsIntent);
+    });
     }
 }
