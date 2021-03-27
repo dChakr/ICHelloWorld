@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "944804082595",
+    "project_id": "pandemicpals-f29e4",
+    "storage_bucket": "pandemicpals-f29e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944804082595:android:1188917a8d31882a9e2016",
+        "android_client_info": {
+          "package_name": "com.example.covidfriendsappthing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944804082595-3atuc623lifq4hqad7kfttucp6puf5bm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTDMjT3pnp2V6g0qJSZmG3UNmXo2APs0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944804082595-3atuc623lifq4hqad7kfttucp6puf5bm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
