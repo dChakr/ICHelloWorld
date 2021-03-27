@@ -25,5 +25,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(isolatingIntent);
             }
         });
+
+        Button newGroup = (Button) findViewById(R.id.create_groups);
+
+        newGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent isolatingIntent = new Intent(MainActivity.this, CreateGroupClass.class);
+
+                startActivity(isolatingIntent);
+            }
+        });
+
+        Button myGroups = (Button) findViewById(R.id.my_groups);
+
+        myGroups.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent isolatingIntent = new Intent(MainActivity.this, MyGroupsClass.class);
+            }
+        });
     }
 }
