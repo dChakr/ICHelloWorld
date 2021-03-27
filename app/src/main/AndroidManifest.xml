@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.covidfriendsappthing">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -13,14 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidFriendsAppThing">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".CovidSettingsActivity"
             android:label="Covid Settings"
@@ -29,7 +27,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".CreateGroupClass"
             android:label="Make a New Group"
@@ -38,7 +35,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".MyGroupsClass"
             android:label="My Groups"
@@ -55,6 +51,23 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".RegisterClass"
+            android:label="Register with Us"
+            android:parentActivityName=".UserLoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UserLoginActivity" />
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="PandemicPals"
+            android:parentActivityName=".UserLoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UserLoginActivity" />
         </activity>
 
     </application>
