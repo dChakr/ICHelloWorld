@@ -4,4 +4,14 @@
     android:layout_height="match_parent"
     android:id="@+id/two_weeks_page">
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="414dp"
+        android:layout_height="50dp"
+        android:background="@color/purple_text_colour"
+        android:gravity="center"
+        android:text="Register with Us"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 </androidx.constraintlayout.widget.ConstraintLayout>
