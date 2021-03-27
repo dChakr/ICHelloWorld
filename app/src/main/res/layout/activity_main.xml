@@ -37,11 +37,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/covid_settings"
         android:layout_width="331dp"
         android:layout_height="73dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginBottom="18dp"
         android:linksClickable="false"
         android:onClick="goToCovidSettings"
@@ -49,11 +49,11 @@
         android:textColor="#341963"
         android:textSize="20sp"
         app:backgroundTint="#C0A7ED"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/create_groups"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/create_groups"
         android:layout_width="331dp"
         android:layout_height="73dp"
         android:layout_marginStart="40dp"
@@ -63,11 +63,11 @@
         android:textColor="#341963"
         android:textSize="20sp"
         app:backgroundTint="#C0A7ED"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/my_groups"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/my_groups"
         android:layout_width="331dp"
         android:layout_height="73dp"
         android:layout_marginStart="40dp"
@@ -79,4 +79,15 @@
         app:backgroundTint="#C0A7ED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="282dp"
+        android:layout_height="264dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginLeft="79dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/covid_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

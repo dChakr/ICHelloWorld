@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button settings = (Button) findViewById(R.id.covid_settings);
 
+        System.out.println(settings);
+
         //add the onClick listener
         settings.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -31,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         newGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent isolatingIntent = new Intent(MainActivity.this, CreateGroupClass.class);
+                Intent isolatingIntent1 = new Intent(MainActivity.this, CreateGroupClass.class);
 
-                startActivity(isolatingIntent);
+                startActivity(isolatingIntent1);
             }
         });
 
@@ -42,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         myGroups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent isolatingIntent = new Intent(MainActivity.this, MyGroupsClass.class);
+                Intent isolatingIntent2 = new Intent(MainActivity.this, MyGroupsClass.class);
+
+                startActivity(isolatingIntent2);
             }
         });
     }
