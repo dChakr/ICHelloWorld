@@ -2,9 +2,13 @@ package com.example.covidfriendsappthing;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.Touch;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +29,8 @@ public class CreateGroupClass extends AppCompatActivity {
     static String user4;
     static String user5;
     static String meetingName;
+    int numOfRed = 0;
+    int numOfOrange = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +38,14 @@ public class CreateGroupClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
 
-        Bundle extra2 = getIntent().getExtras();
-        if (extra2 != null) {
-            user1 = extra2.getString("user1");
-            user2 = extra2.getString("user2");
-            user3 = extra2.getString("user3");
-            user4 = extra2.getString("user4");
-            user5 = extra2.getString("user5");
-        }
-        //FriendsClass.taken = new ArrayList<>();
+//        Bundle extra2 = getIntent().getExtras();
+//        if (extra2 != null) {
+//            user1 = extra2.getString("user1");
+//            user2 = extra2.getString("user2");
+//            user3 = extra2.getString("user3");
+//            user4 = extra2.getString("user4");
+//            user5 = extra2.getString("user5");
+//        }
 
 
         ImageButton person1 = findViewById(R.id.Person1);
@@ -50,15 +55,12 @@ public class CreateGroupClass extends AppCompatActivity {
         ImageButton person5 = findViewById(R.id.Person5);
 
 
-        EditText meetingNameBox = findViewById(R.id.meeting_name);
-
         Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
 
         EditText meetingNameField = findViewById(R.id.reg_username);
 
         person1.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
-
+            //meetingName = meetingNameBox.getText().toString();
             myGroupsIntent.putExtra("Setter", person1.getId());
 
             startActivity(myGroupsIntent);
@@ -69,7 +71,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person2.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person2.getId());
 
@@ -80,7 +82,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person3.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person3.getId());
 
@@ -91,7 +93,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person4.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person4.getId());
 
@@ -102,7 +104,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person5.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person5.getId());
 
@@ -225,7 +227,34 @@ public class CreateGroupClass extends AppCompatActivity {
 
         }
 
-        ((TextView) (findViewById(R.id.meeting_name))).setText(meetingName);
+        Button createMeeting = (Button) findViewById(R.id.create_meeting_btn);
+
+        createMeeting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (numOfRed > 0) {
+                    String error = "You can't create this group - " + numOfRed + " people have Covid";
+                    Toast.makeText(CreateGroupClass.this, error, Toast.LENGTH_LONG).show();
+                } else if (numOfOrange > 0) {
+                    String error = "You can't create this group - " + numOfOrange + " people have been in contact with Covid. DOuble check with them first!";
+                    Toast.makeText(CreateGroupClass.this, error, Toast.LENGTH_LONG).show();
+                } else {
+                    EditText meetingNameBox = findViewById(R.id.meeting_name);
+                    meetingName = meetingNameBox.getText().toString();
+
+                    Intent newMeeting = new Intent(CreateGroupClass.this, CreatedMeetingActivity.class);
+
+                    newMeeting.putExtra("meetingName", meetingName);
+                    newMeeting.putExtra("member1", user1);
+                    newMeeting.putExtra("member2", user2);
+                    newMeeting.putExtra("member3", user3);
+                    newMeeting.putExtra("member4", user4);
+                    newMeeting.putExtra("member5", user5);
+
+                    startActivity(newMeeting);
+                }
+            }
+        });
 
     }
 
@@ -233,9 +262,11 @@ public class CreateGroupClass extends AppCompatActivity {
         switch (status) {
             case COVID_POSITIVE:
                 person.setImageResource(R.drawable.covid_positive);
+                numOfRed += 1;
                 break;
             case CONTACT_WITH_COVID:
                 person.setImageResource(R.drawable.contact_covid);
+                numOfOrange += 1;
                 break;
             default:
                 person.setImageResource(R.drawable.covid_free);

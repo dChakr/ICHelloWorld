@@ -43,7 +43,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#C0A7ED"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 app:cardBackgroundColor="#EEE5FD"
@@ -55,6 +54,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/group_name1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -123,6 +123,7 @@
                             android:layout_height="10dp" />
 
                         <Button
+                            android:id="@+id/view_members1"
                             android:layout_width="110dp"
                             android:layout_height="55dp"
                             android:backgroundTint="@color/purple_text_colour"

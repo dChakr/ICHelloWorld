@@ -5,38 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/person2_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Add a person here!"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/person4_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="45dp"
-        android:text="Add a person here!"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Person4"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ImageButton
         android:id="@+id/Person1"
         android:layout_width="88dp"
         android:layout_height="102dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="60dp"
         android:background="@null"
         android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,28 +19,66 @@
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
-        android:id="@+id/Person3"
+        android:id="@+id/Person5"
         android:layout_width="88dp"
         android:layout_height="102dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="420dp"
         android:background="@null"
         android:scaleType="fitStart"
-        app:layout_constraintEnd_toStartOf="@+id/Person2"
-        app:layout_constraintHorizontal_bias="0.305"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageButton
+        android:id="@+id/Person2"
+        android:layout_width="88dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="272dp"
+        android:background="@null"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/plus" />
 
     <TextView
-        android:id="@+id/person3_name"
+        android:id="@+id/person5_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginBottom="168dp"
         android:text="Add a person here!"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/Person4"
+        android:layout_width="88dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="420dp"
+        android:background="@null"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus" />
+
+    <TextView
+        android:id="@+id/person2_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Add a person here!"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -81,30 +92,41 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/Person2"
-        android:layout_width="88dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="248dp"
-        android:background="@null"
-        android:scaleType="fitStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
+    <TextView
+        android:id="@+id/person4_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginBottom="168dp"
+        android:text="Add a person here!"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/person3_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="360dp"
+        android:text="Add a person here!"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plus" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/Person4"
+        android:id="@+id/Person3"
         android:layout_width="88dp"
         android:layout_height="102dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="272dp"
         android:background="@null"
         android:scaleType="fitStart"
+        app:layout_constraintEnd_toStartOf="@+id/Person2"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/person3_name"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/plus" />
 
     <TextView
@@ -120,36 +142,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/Person5"
-        android:layout_width="88dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="20dp"
-        android:background="@null"
-        android:scaleType="fitStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
-        app:layout_constraintStart_toEndOf="@+id/Person4"
-        app:layout_constraintTop_toBottomOf="@+id/person2_name"
-        app:srcCompat="@drawable/plus" />
-
-    <TextView
-        android:id="@+id/person5_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="45dp"
-        android:text="Add a person here!"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox3"
-        app:layout_constraintStart_toEndOf="@+id/person4_name"
-        app:layout_constraintTop_toBottomOf="@+id/Person5"
-        app:layout_constraintVertical_bias="1.0" />
-
     <Button
         android:id="@+id/create_meeting_btn"
         android:layout_width="251dp"
@@ -158,13 +150,12 @@
         android:layout_marginLeft="37dp"
         android:layout_marginEnd="37dp"
         android:layout_marginRight="37dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="#F6B85C"
         android:text="CREATE MEETING"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText

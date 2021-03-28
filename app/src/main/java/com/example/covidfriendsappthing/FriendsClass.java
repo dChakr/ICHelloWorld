@@ -1,5 +1,6 @@
 package com.example.covidfriendsappthing;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 

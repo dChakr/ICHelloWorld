@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.covidfriendsappthing">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -76,6 +77,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".CreatedMeetingActivity"
+            android:label="New Meeting"
+            android:parentActivityName=".CreateGroupClass">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CreateGroupClass"/>
+        </activity>
+        <activity
+            android:name=".CreatedMeetingActivity2"
+            android:label="Old Meeting"
+            android:parentActivityName=".MyGroupsClass">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyGroupsClass"/>
         </activity>
     </application>
 
