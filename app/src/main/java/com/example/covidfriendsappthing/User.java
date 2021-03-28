@@ -7,7 +7,7 @@ public class User {
     public String username;
     public String email;
     public String phoneNumber;
-    public String status;
+    public CovidStatus status;
     public ArrayList<User> friends;
     public ArrayList<Meeting> meetings;
 
@@ -19,7 +19,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.status = "EMPTY";
+        this.status = CovidStatus.UNKOWN;
         this.friends = new ArrayList<>();
         this.meetings = new ArrayList<>();
     }
