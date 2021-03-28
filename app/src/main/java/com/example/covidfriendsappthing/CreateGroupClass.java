@@ -49,6 +49,7 @@ public class CreateGroupClass extends AppCompatActivity {
         ImageButton person4 = findViewById(R.id.Person4);
         ImageButton person5 = findViewById(R.id.Person5);
 
+
         EditText meetingNameBox = findViewById(R.id.meeting_name);
 
         Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);

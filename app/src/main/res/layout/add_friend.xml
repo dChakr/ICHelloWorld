@@ -28,13 +28,16 @@
             android:enabled="true"
             android:hint="Username"
             android:inputType="textPersonName"
-            android:selectAllOnFocus="true" />
+            android:selectAllOnFocus="true"
+            android:textColor="#341963" />
 
         <Button
             android:id="@+id/addFriendButton"
             android:layout_width="215dp"
             android:layout_height="72dp"
             android:enabled="true"
-            android:text="Add Friend" />
+            android:text="Add Friend"
+            android:textColor="#341963"
+            app:backgroundTint="#C0A7ED" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@ public class Meeting {
     public Meeting(String meetingId, String meetingName, User owner) {
         this.meetingId = meetingId;
         this.meetingName = meetingName;
-        this.status = owner.status;
+        //this.status = owner.status;
         this.members = new ArrayList<>();
         this.members.add(owner);
     }

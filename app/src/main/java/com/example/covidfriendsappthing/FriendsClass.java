@@ -3,6 +3,7 @@ package com.example.covidfriendsappthing;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -92,6 +93,18 @@ public class FriendsClass extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         this.setIntent(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent back = new Intent(FriendsClass.this, CreateGroupClass.class);
+        startActivity(back);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(FriendsClass.this, CreateGroupClass.class);
+        startActivityForResult(myIntent, 0);
+        return true;
     }
 
 }
