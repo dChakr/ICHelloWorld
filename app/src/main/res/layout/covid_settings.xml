@@ -64,7 +64,7 @@
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter Name Here"
+            android:hint="Enter Name Here"
             android:textSize="13dp" />
 
         <TextView
