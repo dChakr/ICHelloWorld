@@ -20,6 +20,7 @@ public class CreateGroupClass extends AppCompatActivity {
     static String user3;
     static String user4;
     static String user5;
+    static String meetingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,42 +33,49 @@ public class CreateGroupClass extends AppCompatActivity {
         ImageButton person4 = findViewById(R.id.Person4);
         ImageButton person5 = findViewById(R.id.Person5);
 
+        EditText meetingNameBox = findViewById(R.id.meeting_name);
+
         Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
 
         EditText meetingNameField = findViewById(R.id.reg_username);
-        String meetingName = "new meeting";//meetingNameField.getText().toString();
+        //String meetingName = "new meeting";//meetingNameField.getText().toString();
 
         person1.setOnClickListener(view -> {
-            myGroupsIntent.putExtra("Setter", person1.getId());
+            meetingName = meetingNameBox.getText().toString();
 
+            myGroupsIntent.putExtra("Setter", person1.getId());
             startActivity(myGroupsIntent);
         });
 
 
         person2.setOnClickListener(view -> {
-            myGroupsIntent.putExtra("Setter", person2.getId());
+            meetingName = meetingNameBox.getText().toString();
 
+            myGroupsIntent.putExtra("Setter", person2.getId());
             startActivity(myGroupsIntent);
         });
 
 
         person3.setOnClickListener(view -> {
-            myGroupsIntent.putExtra("Setter", person3.getId());
+            meetingName = meetingNameBox.getText().toString();
 
+            myGroupsIntent.putExtra("Setter", person3.getId());
             startActivity(myGroupsIntent);
         });
 
 
         person4.setOnClickListener(view -> {
-            myGroupsIntent.putExtra("Setter", person4.getId());
+            meetingName = meetingNameBox.getText().toString();
 
+            myGroupsIntent.putExtra("Setter", person4.getId());
             startActivity(myGroupsIntent);
         });
 
 
         person5.setOnClickListener(view -> {
-            myGroupsIntent.putExtra("Setter", person5.getId());
+            meetingName = meetingNameBox.getText().toString();
 
+            myGroupsIntent.putExtra("Setter", person5.getId());
             startActivity(myGroupsIntent);
         });
 
