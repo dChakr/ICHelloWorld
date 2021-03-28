@@ -19,6 +19,9 @@ public class AddFriend extends AppCompatActivity {
         addFriendButton.setOnClickListener(x -> {
             String toAdd = addFriendField.getText().toString();
 
+
+
+
             Intent myGroupsIntent = new Intent(AddFriend.this, MainActivity.class);
             startActivity(myGroupsIntent);
         });

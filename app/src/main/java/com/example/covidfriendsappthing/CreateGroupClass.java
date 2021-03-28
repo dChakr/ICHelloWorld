@@ -19,17 +19,29 @@ import java.util.ArrayList;
 
 public class CreateGroupClass extends AppCompatActivity {
 
-     String user1;
-     String user2;
-     String user3;
-     String user4;
-     String user5;
-     String meetingName;
+     static String user1;
+     static String user2;
+     static String user3;
+     static String user4;
+     static String user5;
+     static String meetingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
+
+
+/*      Bundle extra2 = getIntent().getExtras();
+        if(extra2 != null){
+            user1 = extra2.getString("user1");
+            user2 = extra2.getString("user2");
+            user3 = extra2.getString("user3");
+            user4 = extra2.getString("user4");
+            user5 = extra2.getString("user5");
+        }
+*/
+
 
         ImageButton person1 = findViewById(R.id.Person1);
         ImageButton person2 = findViewById(R.id.Person2);
@@ -48,8 +60,11 @@ public class CreateGroupClass extends AppCompatActivity {
             meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person1.getId());
+
             startActivity(myGroupsIntent);
             finish();
+
+
         });
 
 
@@ -57,6 +72,8 @@ public class CreateGroupClass extends AppCompatActivity {
             meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person2.getId());
+
+
             startActivity(myGroupsIntent);
             finish();
         });
@@ -66,8 +83,10 @@ public class CreateGroupClass extends AppCompatActivity {
             meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person3.getId());
+
             startActivity(myGroupsIntent);
             finish();
+
         });
 
 
@@ -75,8 +94,10 @@ public class CreateGroupClass extends AppCompatActivity {
             meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person4.getId());
+
             startActivity(myGroupsIntent);
             finish();
+
         });
 
 
@@ -84,8 +105,10 @@ public class CreateGroupClass extends AppCompatActivity {
             meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person5.getId());
+
             startActivity(myGroupsIntent);
             finish();
+
         });
 
         Bundle extras = getIntent().getExtras();
@@ -108,6 +131,7 @@ public class CreateGroupClass extends AppCompatActivity {
             if (setBubble == person5.getId()) {
                 user5 = selFr;
             }
+
         }
 
 
@@ -222,16 +246,15 @@ public class CreateGroupClass extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        FriendsClass.taken = new ArrayList<>();
-        finish();
+    public void onBackPressed() {
+        super.onBackPressed();
+        //FriendsClass.taken = new ArrayList<>();
+
     }
 
-
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        this.setIntent(intent);
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -37,7 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
         newGroup.setOnClickListener(view -> {
             Intent newGroupIntent = new Intent(MainActivity.this, CreateGroupClass.class);
-
+/*
+            newGroupIntent.putExtra("user1","");
+            newGroupIntent.putExtra("user2","");
+            newGroupIntent.putExtra("user3","");
+            newGroupIntent.putExtra("user4","");
+            newGroupIntent.putExtra("user5","");
+*/
             startActivity(newGroupIntent);
         });
 

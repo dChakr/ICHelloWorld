@@ -23,6 +23,7 @@ public class FriendsClass extends AppCompatActivity {
     List<String> friends = new ArrayList<>();
     static List<String> taken = new ArrayList<>();
     FirebaseAuth auth = FirebaseAuth.getInstance();
+    private boolean phase = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +76,22 @@ public class FriendsClass extends AppCompatActivity {
 
             taken.add(selectedFriend);
 
+            phase = true;
+
+
             startActivity(myGroupsIntent);
             finish();
+
         });
 
         listView.setAdapter(arrayAdapter);
 
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        this.setIntent(intent);
+    }
 
 }
