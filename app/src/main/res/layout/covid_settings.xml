@@ -6,174 +6,225 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="395dp"
-        android:layout_height="784dp"
-        android:orientation="vertical"
+        android:layout_height="787dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="425dp"
-            android:layout_height="40dp"
-            android:background="#C0A7ED"
-            android:gravity="center"
-            android:text="PandemicPals"
-            android:textColor="#341963"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="414dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/purple_text_colour"
-            android:gravity="center"
-            android:text="@string/covid_settings_page_title"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.523"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="85dp"
-            android:layout_height="31dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="fill_vertical"
-            android:text="Name: "
-            android:textColor="@color/purple_text_colour"
-            android:textSize="18dp" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="274dp"
-            android:layout_height="34dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Enter Name Here"
-            android:textSize="13dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="145dp"
-            android:layout_height="29dp"
-            android:layout_marginLeft="10dp"
-            android:text="Current Address: "
-            android:textColor="@color/purple_text_colour"
-            android:textSize="18dp" />
-
         <LinearLayout
-            android:layout_width="370dp"
-            android:layout_height="187dp"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
+            android:layout_width="395dp"
+            android:layout_height="784dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="425dp"
+                android:layout_height="40dp"
+                android:background="#C0A7ED"
+                android:gravity="center"
+                android:text="PandemicPals"
+                android:textColor="#341963"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="414dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/purple_text_colour"
+                android:gravity="center"
+                android:text="@string/covid_settings_page_title"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.523"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="85dp"
+                android:layout_height="31dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="fill_vertical"
+                android:text="Name: "
+                android:textColor="@color/purple_text_colour"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPostalAddress2"
-                android:layout_width="365dp"
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="274dp"
                 android:layout_height="34dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:gravity="end"
-                android:inputType="textPostalAddress"
-                android:hint="Address Line 1"
-                android:textSize="13dp"/>
-
-            <EditText
-                android:id="@+id/editTextTextPostalAddress3"
-                android:layout_width="365dp"
-                android:layout_height="34dp"
-                android:ems="10"
-                android:gravity="end"
-                android:inputType="textPostalAddress"
-                android:hint="Adress Line 2"
+                android:hint="Enter Name Here"
+                android:inputType="textPersonName"
                 android:textSize="13dp" />
 
-            <EditText
-                android:id="@+id/editTextTextPostalAddress4"
-                android:layout_width="365dp"
-                android:layout_height="34dp"
-                android:ems="10"
-                android:gravity="end"
-                android:inputType="textPostalAddress"
-                android:hint="City"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/editTextTextPostalAddress5"
-                android:layout_width="365dp"
-                android:layout_height="34dp"
-                android:ems="10"
-                android:gravity="end"
-                android:inputType="textPostalAddress"
-                android:hint="Country"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/editTextTextPostalAddress6"
-                android:layout_width="365dp"
-                android:layout_height="34dp"
-                android:ems="10"
-                android:gravity="end"
-                android:inputType="textPostalAddress"
-                android:hint="Postcode"
-                android:textSize="13dp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="145dp"
-            android:layout_height="29dp"
-            android:layout_marginLeft="10dp"
-            android:text="Covid Status: "
-            android:textColor="@color/purple_text_colour"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="11dp"
-            tools:layout_editor_absoluteY="457dp" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RadioButton
-                android:id="@+id/radioButton"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No symmptoms and havn't tested positive" />
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:animateLayoutChanges="true"
+                app:cardBackgroundColor="#FDE1B7"
+                app:cardCornerRadius="15dp">
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Currently self-isolating but not tested positive" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tested positive for Covid-19 and am self-isolating" />
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="145dp"
+                        android:layout_height="29dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Covid Status "
+                        android:textAlignment="center"
+                        android:textColor="@color/purple_text_colour"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteX="11dp"
+                        tools:layout_editor_absoluteY="457dp" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp">
+
+                        <RadioButton
+                            android:id="@+id/radioButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No symmptoms and havn't tested positive"
+                            android:textColor="#0F9A38" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Currently self-isolating but not tested positive" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tested positive for Covid-19 and am self-isolating"
+                            android:textColor="#F44336" />
+
+                        <Button
+                            android:id="@+id/confirmStatus"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/purple_text_colour"
+                            android:text="OK"
+                            android:textColorHighlight="@color/purple_text_colour"
+                            android:textStyle="bold" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="145dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Current Address: "
+                android:textColor="@color/purple_text_colour"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="370dp"
+                android:layout_height="187dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextTextPostalAddress2"
+                    android:layout_width="365dp"
+                    android:layout_height="34dp"
+                    android:ems="10"
+                    android:gravity="end"
+                    android:hint="Address Line 1"
+                    android:inputType="textPostalAddress"
+                    android:textSize="13dp" />
+
+                <EditText
+                    android:id="@+id/editTextTextPostalAddress3"
+                    android:layout_width="365dp"
+                    android:layout_height="34dp"
+                    android:ems="10"
+                    android:gravity="end"
+                    android:hint="Adress Line 2"
+                    android:inputType="textPostalAddress"
+                    android:textSize="13dp" />
+
+                <EditText
+                    android:id="@+id/editTextTextPostalAddress4"
+                    android:layout_width="365dp"
+                    android:layout_height="34dp"
+                    android:ems="10"
+                    android:gravity="end"
+                    android:hint="City"
+                    android:inputType="textPostalAddress"
+                    android:textSize="13dp" />
+
+                <EditText
+                    android:id="@+id/editTextTextPostalAddress5"
+                    android:layout_width="365dp"
+                    android:layout_height="34dp"
+                    android:ems="10"
+                    android:gravity="end"
+                    android:hint="Country"
+                    android:inputType="textPostalAddress"
+                    android:textSize="13dp" />
+
+                <EditText
+                    android:id="@+id/editTextTextPostalAddress6"
+                    android:layout_width="365dp"
+                    android:layout_height="34dp"
+                    android:ems="10"
+                    android:gravity="end"
+                    android:hint="Postcode"
+                    android:inputType="textPostalAddress"
+                    android:textSize="13dp" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/confirmStatus"
-                android:layout_width="match_parent"
+                android:id="@+id/confirmSettings"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="OK" />
-        </RadioGroup>
-    </LinearLayout>
+                android:layout_gravity="center"
+                android:backgroundTint="@color/purple_text_colour"
+                android:text="Submit"
+                android:textColorHighlight="@color/purple_text_colour"
+                android:textStyle="bold" />
 
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
