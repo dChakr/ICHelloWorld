@@ -21,15 +21,13 @@ import java.util.List;
 public class FriendsClass extends AppCompatActivity {
 
     List<String> friends = new ArrayList<>();
+    static List<String> taken = new ArrayList<>();
     FirebaseAuth auth = FirebaseAuth.getInstance();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends_list);
-
-
 
         ArrayAdapter<String> arrayAdapter
                 = new ArrayAdapter<String>(FriendsClass.this, android.R.layout.simple_list_item_1, friends);
@@ -43,21 +41,17 @@ public class FriendsClass extends AppCompatActivity {
 
                 database.child("Users").child(u).get().addOnSuccessListener(dataSnapshot1 -> {
                     User p = dataSnapshot1.getValue(User.class);
-                    arrayAdapter.add(p.username);
+
+                    if(!taken.contains(p.username)){
+                        arrayAdapter.add(p.username);
+                    }
+
                 });
 
 
             }
             arrayAdapter.notifyDataSetChanged();
         });
-
-/*
-        friends.add("Viki");
-        friends.add("Thaarukan");
-        friends.add("Adhithi");
-        friends.add("Dyuti");
-        friends.add("Alex");
-*/
 
 
         listView.setAdapter(arrayAdapter);
@@ -74,17 +68,19 @@ public class FriendsClass extends AppCompatActivity {
             }
 
             String selectedFriend = listView.getItemAtPosition(position).toString();
-            removeFromList(selectedFriend);
+            friends.remove(selectedFriend);
 
             myGroupsIntent.putExtra("Selected", selectedFriend);
             myGroupsIntent.putExtra("Setter", setBubble);
+
+            taken.add(selectedFriend);
+
             startActivity(myGroupsIntent);
-
+            finish();
         });
-    }
 
-    private void removeFromList(String friendAlreadyAdded) {
-        friends.remove(friendAlreadyAdded);
+        listView.setAdapter(arrayAdapter);
+
     }
 
 }
