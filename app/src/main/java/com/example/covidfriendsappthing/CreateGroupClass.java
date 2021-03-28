@@ -8,6 +8,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CreateGroupClass extends AppCompatActivity {
 
     static String user1;
@@ -88,32 +93,92 @@ public class CreateGroupClass extends AppCompatActivity {
             }
         }
 
-        CovidStatus status;
+
+
+        DatabaseReference database = FirebaseDatabase .getInstance("https://pandemicpals-f29e4-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
         if (user1 != null) {
-            status = getCovidStatus(user1);
-            changeUserCovidStatus(person1, status);
-            ((TextView) (findViewById(R.id.person1_name))).setText(user1);
+
+            database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
+                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                    String UID = ds.child("username").getValue(String.class);
+                    if (user1.equals(UID)){
+
+                        CovidStatus status = ds.child("status").getValue(CovidStatus.class);
+
+                        changeUserCovidStatus(person1, status);
+                        ((TextView) (findViewById(R.id.person1_name))).setText(user1);
+                        break;
+                    }
+                }
+            });
 
         }
         if (user2 != null) {
-            status = getCovidStatus(user2);
-            changeUserCovidStatus(person2, status);
-            ((TextView) (findViewById(R.id.person2_name))).setText(user2);
+            database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
+                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                    String UID = ds.child("username").getValue(String.class);
+                    if (user2.equals(UID)){
+
+                        CovidStatus status = ds.child("status").getValue(CovidStatus.class);
+
+
+                        changeUserCovidStatus(person2, status);
+                        ((TextView) (findViewById(R.id.person2_name))).setText(user2);
+                        break;
+                    }
+                }
+            });
+
         }
         if (user3 != null) {
-            status = getCovidStatus(user3);
-            changeUserCovidStatus(person3, status);
-            ((TextView) (findViewById(R.id.person3_name))).setText(user3);
+            database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
+                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                    String UID = ds.child("username").getValue(String.class);
+                    if (user3.equals(UID)){
+
+                        CovidStatus status = ds.child("status").getValue(CovidStatus.class);
+
+
+                        changeUserCovidStatus(person3, status);
+                        ((TextView) (findViewById(R.id.person3_name))).setText(user3);
+                        break;
+                    }
+                }
+            });
+
         }
         if (user4 != null) {
-            status = getCovidStatus(user4);
-            changeUserCovidStatus(person4, status);
-            ((TextView) (findViewById(R.id.person4_name))).setText(user4);
+            database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
+                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                    String UID = ds.child("username").getValue(String.class);
+                    if (user4.equals(UID)){
+
+                        CovidStatus status = ds.child("status").getValue(CovidStatus.class);
+
+                        changeUserCovidStatus(person4, status);
+                        ((TextView) (findViewById(R.id.person4_name))).setText(user4);
+                        break;
+                    }
+                }
+            });
+
         }
         if (user5 != null) {
-            status = getCovidStatus(user5);
-            changeUserCovidStatus(person5, status);
-            ((TextView) (findViewById(R.id.person5_name))).setText(user5);
+            database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
+                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                    String UID = ds.child("username").getValue(String.class);
+                    if (user5.equals(UID)){
+
+                        CovidStatus status = ds.child("status").getValue(CovidStatus.class);
+
+
+                        changeUserCovidStatus(person5, status);
+                        ((TextView) (findViewById(R.id.person5_name))).setText(user5);
+                        break;
+                    }
+                }
+            });
+
         }
 
         ((TextView) (findViewById(R.id.meeting_name))).setText(meetingName);
@@ -133,8 +198,5 @@ public class CreateGroupClass extends AppCompatActivity {
         }
     }
 
-    private CovidStatus getCovidStatus(String person) {
-        return CovidStatus.COVID_NEGATIVE;
-    }
 
 }

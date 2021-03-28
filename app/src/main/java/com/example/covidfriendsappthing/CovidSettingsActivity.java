@@ -9,6 +9,12 @@ import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,33 +31,62 @@ public class CovidSettingsActivity extends AppCompatActivity {
         RadioButton hasCovid = findViewById(R.id.radioButton3);
         Button confirmStatus = findViewById(R.id.confirmStatus);
 
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
         // PLACEHOLDER for my user and my contact list of the past 2 weeks
-        User myself = new User();
-        List<String> metTwoWeeks = new ArrayList<String>();
 
-        confirmStatus.setOnClickListener(x -> {
-            if (noSymp.isChecked()) {
-                // either COVID_NEGATIVE or CONTACT_WITH_COVID
+        String uid = auth.getUid();
+        DatabaseReference database = FirebaseDatabase.getInstance("https://pandemicpals-f29e4-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+        database.child("Users").child(uid).get().addOnSuccessListener(dataSnapshot -> {
+            System.out.println(dataSnapshot);
+            User myself = dataSnapshot.getValue(User.class);
 
-                // checks all people met in the last two weeks -> if any of them is positive, it is a contact.
-                for (String person : metTwoWeeks) {
-                    // if (person.status == CovidStatus.COVID_POSITIVE) {
-                    // myself.status = CovidStatus.CONTACT_WITH_COVID;
-                    // break;
-                    // }
+            confirmStatus.setOnClickListener(x -> {
+                if (noSymp.isChecked()) {
+                    // either COVID_NEGATIVE or CONTACT_WITH_COVID
+
+                    // checks all people met in the last two weeks -> if any of them is positive, it is a contact.
+                    for (String person : myself.metTwoWeeks) {
+                        database.child("Users").child(person).get().addOnSuccessListener(dataSnapshot1 -> {
+                            User other = dataSnapshot1.getValue(User.class);
+                            if (other.status == CovidStatus.COVID_POSITIVE) {
+                                database.child("Users").child(uid).child("status").setValue(CovidStatus.CONTACT_WITH_COVID);
+                                //myself.status = CovidStatus.CONTACT_WITH_COVID;
+                            }
+                        });
+
+                        if (myself.status == CovidStatus.CONTACT_WITH_COVID) {
+                            break;
+                        } else {
+                            //myself.status = CovidStatus.COVID_NEGATIVE;
+                            database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_NEGATIVE);
+                        }
+                        //TEST THIS
+
+                    }
+
+                } else if (isolating.isChecked()) {
+                    //myself.status = CovidStatus.CONTACT_WITH_COVID;
+                    database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_NEGATIVE);
+                } else if (hasCovid.isChecked()) {
+                    //myself.status = CovidStatus.COVID_POSITIVE;
+
+
+                    database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_POSITIVE);
+                    for (String person : myself.metTwoWeeks) {
+                        database.child("Users").child(person).get().addOnSuccessListener(dataSnapshot1 -> {
+                            User other = dataSnapshot1.getValue(User.class);
+                            if (other.status != CovidStatus.COVID_POSITIVE) {
+                                database.child("Users").child(person).child("status").setValue(CovidStatus.CONTACT_WITH_COVID);
+                            }
+                        });
+                    }
                 }
-                myself.status = CovidStatus.COVID_NEGATIVE;
-            }
-            else if (isolating.isChecked()) {
-                myself.status = CovidStatus.CONTACT_WITH_COVID;
-            }
-            else if (hasCovid.isChecked()) {
-                myself.status = CovidStatus.COVID_POSITIVE;
-            }
 
-            Intent myGroupsIntent = new Intent(CovidSettingsActivity.this, MainActivity.class);
-            startActivity(myGroupsIntent);
+                Intent myGroupsIntent = new Intent(CovidSettingsActivity.this, MainActivity.class);
+                startActivity(myGroupsIntent);
 
+            });
         });
 
 

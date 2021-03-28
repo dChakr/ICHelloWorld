@@ -28,8 +28,6 @@ import java.util.Arrays;
 public class UserLoginActivity extends AppCompatActivity {
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

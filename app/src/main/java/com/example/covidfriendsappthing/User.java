@@ -1,6 +1,7 @@
 package com.example.covidfriendsappthing;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 
@@ -8,8 +9,9 @@ public class User {
     public String email;
     public String phoneNumber;
     public CovidStatus status;
-    public ArrayList<User> friends;
+    public ArrayList<String> friends;
     public ArrayList<Meeting> meetings;
+    public List<String> metTwoWeeks;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -19,8 +21,10 @@ public class User {
         this.username = username;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.status = CovidStatus.UNKOWN;
+        this.status = CovidStatus.EMPTY;
         this.friends = new ArrayList<>();
         this.meetings = new ArrayList<>();
+        this.metTwoWeeks = new ArrayList<>();
+
     }
 }
