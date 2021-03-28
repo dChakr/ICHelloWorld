@@ -3,7 +3,6 @@ package com.example.covidfriendsappthing;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -14,21 +13,23 @@ import java.util.List;
 
 public class FriendsClass extends AppCompatActivity {
 
-    List<String> friends = new ArrayList<>();
+    // friendsToAdd initially is cloned from the FriendList of the user.
+    // friendsToAdd will be modified here so that's why you need a clone here!!
+    List<String> friendsToAdd = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends_list);
 
-        friends.add("Viki");
-        friends.add("Thaarukan");
-        friends.add("Adhithi");
-        friends.add("Dyuti");
-        friends.add("Alex");
+        friendsToAdd.add("Viki");
+        friendsToAdd.add("Thaarukan");
+        friendsToAdd.add("Adhithi");
+        friendsToAdd.add("Dyuti");
+        friendsToAdd.add("Alex");
 
         ArrayAdapter<String> arrayAdapter
-                = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, friends);
+                = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, friendsToAdd);
 
         ListView listView = (ListView) findViewById(R.id.friendlist);
         listView.setAdapter(arrayAdapter);
@@ -45,6 +46,7 @@ public class FriendsClass extends AppCompatActivity {
             }
 
             String selectedFriend = listView.getItemAtPosition(position).toString();
+            removeFromList(selectedFriend);
 
             myGroupsIntent.putExtra("Selected", selectedFriend);
             myGroupsIntent.putExtra("Setter", setBubble);
@@ -52,4 +54,9 @@ public class FriendsClass extends AppCompatActivity {
 
         });
     }
+
+    private void removeFromList(String friendAlreadyAdded) {
+        friendsToAdd.remove(friendAlreadyAdded);
+    }
+
 }

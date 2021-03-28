@@ -18,12 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button settings = (Button) findViewById(R.id.settings_button);
+        Button gotoAddFriend = findViewById(R.id.gotoAddFriendButton);
 
         //add the onClick listener
         settings.setOnClickListener(view -> {
             Intent settingsIntent = new Intent(MainActivity.this, CovidSettingsActivity.class);
 
             startActivity(settingsIntent);
+        });
+
+        gotoAddFriend.setOnClickListener(view -> {
+            Intent addFriendIntent = new Intent(MainActivity.this, AddFriend.class);
+
+            startActivity(addFriendIntent);
         });
 
         Button newGroup = (Button) findViewById(R.id.group_button);
