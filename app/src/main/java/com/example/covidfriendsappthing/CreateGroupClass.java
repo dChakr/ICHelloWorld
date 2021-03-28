@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -13,14 +14,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
+
 public class CreateGroupClass extends AppCompatActivity {
 
-    static String user1;
-    static String user2;
-    static String user3;
-    static String user4;
-    static String user5;
-    static String meetingName;
+     String user1;
+     String user2;
+     String user3;
+     String user4;
+     String user5;
+     String meetingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
             myGroupsIntent.putExtra("Setter", person1.getId());
             startActivity(myGroupsIntent);
+            finish();
         });
 
 
@@ -53,6 +58,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
             myGroupsIntent.putExtra("Setter", person2.getId());
             startActivity(myGroupsIntent);
+            finish();
         });
 
 
@@ -61,6 +67,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
             myGroupsIntent.putExtra("Setter", person3.getId());
             startActivity(myGroupsIntent);
+            finish();
         });
 
 
@@ -69,6 +76,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
             myGroupsIntent.putExtra("Setter", person4.getId());
             startActivity(myGroupsIntent);
+            finish();
         });
 
 
@@ -77,6 +85,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
             myGroupsIntent.putExtra("Setter", person5.getId());
             startActivity(myGroupsIntent);
+            finish();
         });
 
         Bundle extras = getIntent().getExtras();
@@ -112,6 +121,8 @@ public class CreateGroupClass extends AppCompatActivity {
                     if (user1.equals(UID)){
 
                         CovidStatus status = ds.child("status").getValue(CovidStatus.class);
+
+
 
                         changeUserCovidStatus(person1, status);
                         ((TextView) (findViewById(R.id.person1_name))).setText(user1);
@@ -164,6 +175,7 @@ public class CreateGroupClass extends AppCompatActivity {
                         CovidStatus status = ds.child("status").getValue(CovidStatus.class);
 
                         changeUserCovidStatus(person4, status);
+
                         ((TextView) (findViewById(R.id.person4_name))).setText(user4);
                         break;
                     }
@@ -181,7 +193,9 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
                         changeUserCovidStatus(person5, status);
+
                         ((TextView) (findViewById(R.id.person5_name))).setText(user5);
+
                         break;
                     }
                 }
@@ -204,7 +218,20 @@ public class CreateGroupClass extends AppCompatActivity {
             default:
                 person.setImageResource(R.drawable.covid_free);
         }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FriendsClass.taken = new ArrayList<>();
+        finish();
     }
 
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+    }
 }
