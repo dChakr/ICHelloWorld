@@ -104,4 +104,25 @@ public class CreateGroupClass extends AppCompatActivity {
 
     }
 
+
+    private void changeUserCovidStatus(ImageButton person) {
+        //get covid status of the person from database
+        CovidStatus status = getCovidStatus(person);
+
+        switch(status) {
+            case COVID_POSITIVE:
+                person.setImageResource(R.drawable.covid_positive);
+                break;
+            case CONTACT_WITH_COVID:
+                person.setImageResource(R.drawable.contact_covid);
+                break;
+            default:
+                person.setImageResource(R.drawable.covid_free);
+        }
+    }
+
+    private CovidStatus getCovidStatus(ImageButton person) {
+        return CovidStatus.COVID_NEGATIVE;
+    }
+
 }
