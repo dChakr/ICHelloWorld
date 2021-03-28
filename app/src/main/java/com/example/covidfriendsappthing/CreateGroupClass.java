@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -87,18 +88,24 @@ public class CreateGroupClass extends AppCompatActivity {
 
         if (bubble1 != null) {
             person1.setVisibility(View.INVISIBLE);
+            ((TextView) (findViewById(R.id.person1_name))).setText(bubble1);
+
         }
         if (bubble2 != null) {
             person2.setVisibility(View.INVISIBLE);
+            ((TextView) (findViewById(R.id.person2_name))).setText(bubble2);
         }
         if (bubble3 != null) {
             person3.setVisibility(View.INVISIBLE);
+            ((TextView) (findViewById(R.id.person3_name))).setText(bubble3);
         }
         if (bubble4 != null) {
             person4.setVisibility(View.INVISIBLE);
+            ((TextView) (findViewById(R.id.person4_name))).setText(bubble4);
         }
         if (bubble5 != null) {
             person5.setVisibility(View.INVISIBLE);
+            ((TextView) (findViewById(R.id.person5_name))).setText(bubble5);
         }
 
 
