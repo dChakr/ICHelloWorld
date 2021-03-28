@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
         newGroup.setOnClickListener(view -> {
             Intent newGroupIntent = new Intent(MainActivity.this, CreateGroupClass.class);
-/*
+
             newGroupIntent.putExtra("user1","");
             newGroupIntent.putExtra("user2","");
             newGroupIntent.putExtra("user3","");
             newGroupIntent.putExtra("user4","");
             newGroupIntent.putExtra("user5","");
-*/
+
             startActivity(newGroupIntent);
         });
 
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         myGroups.setOnClickListener(view -> {
             Intent myGroupsIntent = new Intent(MainActivity.this, MyGroupsClass.class);
+            myGroupsIntent.putExtra("user1", "");
 
             startActivity(myGroupsIntent);
         });

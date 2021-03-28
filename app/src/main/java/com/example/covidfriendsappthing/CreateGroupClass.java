@@ -19,28 +19,28 @@ import java.util.ArrayList;
 
 public class CreateGroupClass extends AppCompatActivity {
 
-     static String user1;
-     static String user2;
-     static String user3;
-     static String user4;
-     static String user5;
-     static String meetingName;
+    static String user1;
+    static String user2;
+    static String user3;
+    static String user4;
+    static String user5;
+    static String meetingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
 
-
-/*      Bundle extra2 = getIntent().getExtras();
-        if(extra2 != null){
+        Bundle extra2 = getIntent().getExtras();
+        if (extra2 != null) {
             user1 = extra2.getString("user1");
             user2 = extra2.getString("user2");
             user3 = extra2.getString("user3");
             user4 = extra2.getString("user4");
             user5 = extra2.getString("user5");
         }
-*/
+        //FriendsClass.taken = new ArrayList<>();
 
 
         ImageButton person1 = findViewById(R.id.Person1);
@@ -54,7 +54,6 @@ public class CreateGroupClass extends AppCompatActivity {
         Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
 
         EditText meetingNameField = findViewById(R.id.reg_username);
-        //String meetingName = "new meeting";//meetingNameField.getText().toString();
 
         person1.setOnClickListener(view -> {
             meetingName = meetingNameBox.getText().toString();
@@ -135,17 +134,15 @@ public class CreateGroupClass extends AppCompatActivity {
         }
 
 
-
-        DatabaseReference database = FirebaseDatabase .getInstance("https://pandemicpals-f29e4-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+        DatabaseReference database = FirebaseDatabase.getInstance("https://pandemicpals-f29e4-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
         if (user1 != null) {
 
             database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
-                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String UID = ds.child("username").getValue(String.class);
-                    if (user1.equals(UID)){
+                    if (user1.equals(UID)) {
 
                         CovidStatus status = ds.child("status").getValue(CovidStatus.class);
-
 
 
                         changeUserCovidStatus(person1, status);
@@ -158,9 +155,9 @@ public class CreateGroupClass extends AppCompatActivity {
         }
         if (user2 != null) {
             database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
-                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String UID = ds.child("username").getValue(String.class);
-                    if (user2.equals(UID)){
+                    if (user2.equals(UID)) {
 
                         CovidStatus status = ds.child("status").getValue(CovidStatus.class);
 
@@ -175,9 +172,9 @@ public class CreateGroupClass extends AppCompatActivity {
         }
         if (user3 != null) {
             database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
-                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String UID = ds.child("username").getValue(String.class);
-                    if (user3.equals(UID)){
+                    if (user3.equals(UID)) {
 
                         CovidStatus status = ds.child("status").getValue(CovidStatus.class);
 
@@ -192,9 +189,9 @@ public class CreateGroupClass extends AppCompatActivity {
         }
         if (user4 != null) {
             database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
-                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String UID = ds.child("username").getValue(String.class);
-                    if (user4.equals(UID)){
+                    if (user4.equals(UID)) {
 
                         CovidStatus status = ds.child("status").getValue(CovidStatus.class);
 
@@ -209,9 +206,9 @@ public class CreateGroupClass extends AppCompatActivity {
         }
         if (user5 != null) {
             database.child("Users").get().addOnSuccessListener(dataSnapshot -> {
-                for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String UID = ds.child("username").getValue(String.class);
-                    if (user5.equals(UID)){
+                    if (user5.equals(UID)) {
 
                         CovidStatus status = ds.child("status").getValue(CovidStatus.class);
 
@@ -232,7 +229,7 @@ public class CreateGroupClass extends AppCompatActivity {
     }
 
     private void changeUserCovidStatus(ImageButton person, CovidStatus status) {
-        switch(status) {
+        switch (status) {
             case COVID_POSITIVE:
                 person.setImageResource(R.drawable.covid_positive);
                 break;
