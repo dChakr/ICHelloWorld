@@ -110,7 +110,7 @@
                             android:id="@+id/radioButton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="No symmptoms and havn't tested positive"
+                            android:text="No symptoms and havn't tested positive"
                             android:textColor="#0F9A38" />
 
                         <RadioButton
