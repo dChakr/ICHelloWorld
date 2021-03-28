@@ -44,7 +44,9 @@ public class CovidSettingsActivity extends AppCompatActivity {
             confirmStatus.setOnClickListener(x -> {
                 if (noSymp.isChecked()) {
                     // either COVID_NEGATIVE or CONTACT_WITH_COVID
-
+                    if (myself.metTwoWeeks.isEmpty()){
+                        database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_NEGATIVE);
+                    }
                     // checks all people met in the last two weeks -> if any of them is positive, it is a contact.
                     for (String person : myself.metTwoWeeks) {
                         database.child("Users").child(person).get().addOnSuccessListener(dataSnapshot1 -> {

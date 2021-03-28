@@ -13,6 +13,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddFriend extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +35,25 @@ public class AddFriend extends AppCompatActivity {
             database.child("Users").child(uid).get().addOnSuccessListener(dataSnapshot -> {
                 User user = dataSnapshot.getValue(User.class);
 
+                System.out.println(user.username + " first");
+
                 database.child("Users").get().addOnSuccessListener(dataSnapshot1 -> {
                     for (DataSnapshot ds: dataSnapshot1.getChildren()) {
                         User user1  = ds.getValue(User.class);
                         if(user1.username.equals(toAdd)){
+
+                            System.out.println(user1.username + " seconds");
+
+                            if(user1.friends == null){
+                                user1.friends = new ArrayList<>();
+                            }
+                            if(user.friends == null){
+                                user.friends = new ArrayList<>();
+                            }
                             user1.friends.add(uid);
                             user.friends.add(ds.getKey());
                             database.child("Users").child(uid).child("friends").setValue(user.friends);
-                            database.child("Users").child(ds.getKey()).child("friends").setValue(user.friends);
-
+                            database.child("Users").child(ds.getKey()).child("friends").setValue(user1.friends);
                         }
                     }
                 });
