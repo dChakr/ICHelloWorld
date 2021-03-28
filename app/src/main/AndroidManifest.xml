@@ -77,6 +77,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".CreatedMeetingActivity"
+            android:label="New Meeting"
+            android:parentActivityName=".CreateGroupClass">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CreateGroupClass"/>
+        </activity>
     </application>
 
 </manifest>

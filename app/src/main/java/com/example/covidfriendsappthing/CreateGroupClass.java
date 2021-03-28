@@ -2,6 +2,8 @@ package com.example.covidfriendsappthing;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -49,15 +51,12 @@ public class CreateGroupClass extends AppCompatActivity {
         ImageButton person5 = findViewById(R.id.Person5);
 
 
-        EditText meetingNameBox = findViewById(R.id.meeting_name);
-
         Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
 
         EditText meetingNameField = findViewById(R.id.reg_username);
 
         person1.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
-
+            //meetingName = meetingNameBox.getText().toString();
             myGroupsIntent.putExtra("Setter", person1.getId());
 
             startActivity(myGroupsIntent);
@@ -68,7 +67,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person2.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person2.getId());
 
@@ -79,7 +78,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person3.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person3.getId());
 
@@ -90,7 +89,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person4.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person4.getId());
 
@@ -101,7 +100,7 @@ public class CreateGroupClass extends AppCompatActivity {
 
 
         person5.setOnClickListener(view -> {
-            meetingName = meetingNameBox.getText().toString();
+           // meetingName = meetingNameBox.getText().toString();
 
             myGroupsIntent.putExtra("Setter", person5.getId());
 
@@ -224,7 +223,26 @@ public class CreateGroupClass extends AppCompatActivity {
 
         }
 
-        ((TextView) (findViewById(R.id.meeting_name))).setText(meetingName);
+        Button createMeeting = (Button) findViewById(R.id.create_meeting_btn);
+
+        createMeeting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText meetingNameBox = findViewById(R.id.meeting_name);
+                meetingName = meetingNameBox.getText().toString();
+
+                Intent newMeeting = new Intent(CreateGroupClass.this, CreatedMeetingActivity.class);
+
+                newMeeting.putExtra("meetingName", meetingName);
+                newMeeting.putExtra("member1", user1);
+                newMeeting.putExtra("member2", user2);
+                newMeeting.putExtra("member3", user3);
+                newMeeting.putExtra("member4", user4);
+                newMeeting.putExtra("member5", user5);
+
+                startActivity(newMeeting);
+            }
+        });
 
     }
 
