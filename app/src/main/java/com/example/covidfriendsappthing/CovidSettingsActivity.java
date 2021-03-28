@@ -1,5 +1,6 @@
 package com.example.covidfriendsappthing;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
@@ -47,6 +48,10 @@ public class CovidSettingsActivity extends AppCompatActivity {
             else if (hasCovid.isChecked()) {
                 myself.status = CovidStatus.COVID_POSITIVE;
             }
+
+            Intent myGroupsIntent = new Intent(CovidSettingsActivity.this, MainActivity.class);
+            startActivity(myGroupsIntent);
+
         });
 
 

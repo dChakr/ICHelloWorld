@@ -6,7 +6,7 @@ public class Meeting {
 
     public String meetingId;
     public String meetingName;
-    public String status;
+    public CovidStatus status;
     public ArrayList<User> members;
 
     public Meeting() {
