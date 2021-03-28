@@ -74,6 +74,7 @@ public class FriendsClass extends AppCompatActivity {
             }
 
             String selectedFriend = listView.getItemAtPosition(position).toString();
+            removeFromList(selectedFriend);
 
             myGroupsIntent.putExtra("Selected", selectedFriend);
             myGroupsIntent.putExtra("Setter", setBubble);
@@ -81,4 +82,9 @@ public class FriendsClass extends AppCompatActivity {
 
         });
     }
+
+    private void removeFromList(String friendAlreadyAdded) {
+        friends.remove(friendAlreadyAdded);
+    }
+
 }
