@@ -69,7 +69,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".UserLoginActivity" />
         </activity>
-
     </application>
 
 </manifest>
