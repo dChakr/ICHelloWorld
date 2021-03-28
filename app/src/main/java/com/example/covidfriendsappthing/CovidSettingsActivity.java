@@ -44,44 +44,46 @@ public class CovidSettingsActivity extends AppCompatActivity {
             confirmStatus.setOnClickListener(x -> {
                 if (noSymp.isChecked()) {
                     // either COVID_NEGATIVE or CONTACT_WITH_COVID
-                    if (myself.metTwoWeeks.isEmpty()){
+                    if (myself.metTwoWeeks == null){
                         database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_NEGATIVE);
+                    } else {
+                        for (String person : myself.metTwoWeeks) {
+                            database.child("Users").child(person).get().addOnSuccessListener(dataSnapshot1 -> {
+                                User other = dataSnapshot1.getValue(User.class);
+                                if (other.status == CovidStatus.COVID_POSITIVE) {
+                                    database.child("Users").child(uid).child("status").setValue(CovidStatus.CONTACT_WITH_COVID);
+                                    //myself.status = CovidStatus.CONTACT_WITH_COVID;
+                                }
+                            });
+
+                            if (myself.status == CovidStatus.CONTACT_WITH_COVID) {
+                                break;
+                            } else {
+                                //myself.status = CovidStatus.COVID_NEGATIVE;
+                                database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_NEGATIVE);
+                            }
+                            //TEST THIS
+
+                        }
                     }
                     // checks all people met in the last two weeks -> if any of them is positive, it is a contact.
-                    for (String person : myself.metTwoWeeks) {
-                        database.child("Users").child(person).get().addOnSuccessListener(dataSnapshot1 -> {
-                            User other = dataSnapshot1.getValue(User.class);
-                            if (other.status == CovidStatus.COVID_POSITIVE) {
-                                database.child("Users").child(uid).child("status").setValue(CovidStatus.CONTACT_WITH_COVID);
-                                //myself.status = CovidStatus.CONTACT_WITH_COVID;
-                            }
-                        });
-
-                        if (myself.status == CovidStatus.CONTACT_WITH_COVID) {
-                            break;
-                        } else {
-                            //myself.status = CovidStatus.COVID_NEGATIVE;
-                            database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_NEGATIVE);
-                        }
-                        //TEST THIS
-
-                    }
 
                 } else if (isolating.isChecked()) {
                     //myself.status = CovidStatus.CONTACT_WITH_COVID;
                     database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_NEGATIVE);
                 } else if (hasCovid.isChecked()) {
                     //myself.status = CovidStatus.COVID_POSITIVE;
-
-
-                    database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_POSITIVE);
-                    for (String person : myself.metTwoWeeks) {
-                        database.child("Users").child(person).get().addOnSuccessListener(dataSnapshot1 -> {
-                            User other = dataSnapshot1.getValue(User.class);
-                            if (other.status != CovidStatus.COVID_POSITIVE) {
-                                database.child("Users").child(person).child("status").setValue(CovidStatus.CONTACT_WITH_COVID);
-                            }
-                        });
+                    if (myself.metTwoWeeks == null){
+                        database.child("Users").child(uid).child("status").setValue(CovidStatus.COVID_POSITIVE);
+                    } else {
+                        for (String person : myself.metTwoWeeks) {
+                            database.child("Users").child(person).get().addOnSuccessListener(dataSnapshot1 -> {
+                                User other = dataSnapshot1.getValue(User.class);
+                                if (other.status != CovidStatus.COVID_POSITIVE) {
+                                    database.child("Users").child(person).child("status").setValue(CovidStatus.CONTACT_WITH_COVID);
+                                }
+                            });
+                        }
                     }
                 }
 

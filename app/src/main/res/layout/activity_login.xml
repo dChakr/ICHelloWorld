@@ -46,7 +46,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Sign in to PandemicPals check on your friends:"
+            android:text="Sign in to PandemicPals to check on your friends:"
             android:textColor="@color/purple_text_colour"
             android:textSize="20dp" />
 
