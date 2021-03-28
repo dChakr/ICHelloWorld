@@ -89,6 +89,8 @@ public class CreateGroupClass extends AppCompatActivity {
                 changeUserCovidStatus(person5, status);
             }
         }
+
+        //take the covid status and checkUserCovidStatus()method out into another if statement like Viki had
     }
 
     private void changeUserCovidStatus(ImageButton person, CovidStatus status) {
