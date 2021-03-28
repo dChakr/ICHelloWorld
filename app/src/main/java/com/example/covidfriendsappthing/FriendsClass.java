@@ -21,8 +21,11 @@ public class FriendsClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends_list);
 
-        friends.add("this");
-        friends.add("that");
+        friends.add("Viki");
+        friends.add("Thaarukan");
+        friends.add("Adhithi");
+        friends.add("Dyuti");
+        friends.add("Alex");
 
         ArrayAdapter<String> arrayAdapter
                 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, friends);

@@ -3,6 +3,7 @@ package com.example.covidfriendsappthing;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -62,35 +63,55 @@ public class CreateGroupClass extends AppCompatActivity {
         });
 
         Bundle extras = getIntent().getExtras();
-        CovidStatus status;
         if (extras != null) {
             String selFr = extras.getString("Selected");
 
             int setBubble = extras.getInt("Setter");
             if (setBubble == person1.getId()) {
                 user1 = selFr;
-                status = getCovidStatus(user1);
-                changeUserCovidStatus(person1, status);
-            } else if (setBubble == person2.getId()) {
+            }
+            if (setBubble == person2.getId()) {
                 user2 = selFr;
-                status = getCovidStatus(user2);
-                changeUserCovidStatus(person2, status);
-            } else if (setBubble == person3.getId()) {
+            }
+            if (setBubble == person3.getId()) {
                 user3 = selFr;
-                status = getCovidStatus(user3);
-                changeUserCovidStatus(person3, status);
-            } else if (setBubble == person4.getId()) {
+            }
+            if (setBubble == person4.getId()) {
                 user4 = selFr;
-                status = getCovidStatus(user4);
-                changeUserCovidStatus(person4, status);
-            } else if (setBubble == person5.getId()) {
+            }
+            if (setBubble == person5.getId()) {
                 user5 = selFr;
-                status = getCovidStatus(user5);
-                changeUserCovidStatus(person5, status);
             }
         }
 
-        //take the covid status and checkUserCovidStatus()method out into another if statement like Viki had
+        CovidStatus status;
+        if (user1 != null) {
+            status = getCovidStatus(user1);
+            changeUserCovidStatus(person1, status);
+            ((TextView) (findViewById(R.id.person1_name))).setText(user1);
+
+        }
+        if (user2 != null) {
+            status = getCovidStatus(user2);
+            changeUserCovidStatus(person2, status);
+            ((TextView) (findViewById(R.id.person2_name))).setText(user2);
+        }
+        if (user3 != null) {
+            status = getCovidStatus(user3);
+            changeUserCovidStatus(person3, status);
+            ((TextView) (findViewById(R.id.person3_name))).setText(user3);
+        }
+        if (user4 != null) {
+            status = getCovidStatus(user4);
+            changeUserCovidStatus(person4, status);
+            ((TextView) (findViewById(R.id.person4_name))).setText(user4);
+        }
+        if (user5 != null) {
+            status = getCovidStatus(user5);
+            changeUserCovidStatus(person5, status);
+            ((TextView) (findViewById(R.id.person5_name))).setText(user5);
+        }
+
     }
 
     private void changeUserCovidStatus(ImageButton person, CovidStatus status) {
