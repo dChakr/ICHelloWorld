@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Username"
+            android:text="E-mail"
             android:textColor="#5C5A60"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="15dp"
-            android:hint="Username"
+            android:hint="E-mail"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true" />
 

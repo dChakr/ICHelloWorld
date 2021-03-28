@@ -71,7 +71,7 @@
             android:layout_height="31dp"
             android:layout_marginLeft="10dp"
             android:gravity="fill_vertical"
-            android:text="Email: "
+            android:text="E-mail: "
             android:textColor="@color/purple_text_colour"
             android:textSize="18dp" />
 
@@ -82,7 +82,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="15dp"
-            android:hint="Email"
+            android:hint="E-mail"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true" />
 

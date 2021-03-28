@@ -15,7 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -37,34 +36,45 @@ public class RegisterClass extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            System.out.println("User in here");
             finish();
         }
 
         registerButton.setOnClickListener(x -> {
 
-
+            boolean valid = true;
 
             String regPassword = regPasswordField.getText().toString().trim();
             String regUsername = regUsernameField.getText().toString().trim();
             String regPhoneNum = phoneNumField.getText().toString().trim();
             String regEmail = regEmailField.getText().toString().trim();
+            if(regPassword.isEmpty()) valid =false;
+            if(regPassword.length() < 6){
+                valid =false;
+                Toast.makeText(RegisterClass.this, "Password must be at least 6 chars", Toast.LENGTH_SHORT).show();
+            }
+            if(regUsername.isEmpty()) valid =false;
+            if(regPhoneNum.isEmpty()) valid =false;
+            if(regEmail.isEmpty()) valid =false;
 
 
-
-            auth.createUserWithEmailAndPassword(regEmail, regPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+            if(valid){
+                auth.createUserWithEmailAndPassword(regEmail, regPassword).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        writeNewUser(auth.getCurrentUser().getUid(), regUsername, regEmail, regPhoneNum);
                         Toast.makeText(RegisterClass.this, "User created.",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        writeNewUser(auth.getCurrentUser().getUid(), regUsername, regEmail, regPhoneNum);
                     } else {
                         Toast.makeText(RegisterClass.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
                     }
-                }
-            });
+                });
+            }else{
+                Toast.makeText(RegisterClass.this, "Please enter all of the fields", Toast.LENGTH_SHORT).show();
+            }
+
+
 
         });
     }

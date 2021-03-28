@@ -29,8 +29,8 @@ public class CreateGroupClass extends AppCompatActivity {
 
         Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
 
-        EditText meetingNameField= findViewById(R.id.reg_username);
-        String meetingName = meetingNameField.getText().toString();
+        EditText meetingNameField = findViewById(R.id.reg_username);
+        String meetingName = "new meeting";//meetingNameField.getText().toString();
 
         person1.setOnClickListener(view -> {
             myGroupsIntent.putExtra("Setter", person1.getId());

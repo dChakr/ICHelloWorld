@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +27,9 @@ import java.util.Arrays;
 
 public class UserLoginActivity extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,38 +40,35 @@ public class UserLoginActivity extends AppCompatActivity {
 
         Button loginBtn = findViewById(R.id.signInButton);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = usernameField.getText().toString();
-                String password = passwordField.getText().toString();
+        loginBtn.setOnClickListener(v -> {
+            String username = usernameField.getText().toString();
+            String password = passwordField.getText().toString();
 
-                if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(UserLoginActivity.this, "Please enter all of the fields", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (validateUserInputs(username, password)) {
-                        Intent startUser = new Intent(UserLoginActivity.this, MainActivity.class);
-
-                        startActivity(startUser);
-                    } else {
-                        Toast.makeText(UserLoginActivity.this, "Invalid user credentials", Toast.LENGTH_SHORT).show();
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(UserLoginActivity.this, "Please enter all of the fields", Toast.LENGTH_SHORT).show();
+            } else {
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                auth.signInWithEmailAndPassword(username,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(UserLoginActivity.this, "Logged in",
+                                    Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        } else {
+                            Toast.makeText(UserLoginActivity.this, "Login failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
+                });
             }
         });
 
         Button registerBtn = findViewById(R.id.registerButton);
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent register = new Intent(UserLoginActivity.this, RegisterClass.class);
+        registerBtn.setOnClickListener(v -> {
+            Intent register = new Intent(UserLoginActivity.this, RegisterClass.class);
 
-                startActivity(register);
-            }
+            startActivity(register);
         });
-    }
-
-    private boolean validateUserInputs(String username, String password) {
-        return true;
     }
 }
