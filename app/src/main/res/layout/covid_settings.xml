@@ -144,32 +144,28 @@
             tools:layout_editor_absoluteX="11dp"
             tools:layout_editor_absoluteY="457dp" />
 
-        <LinearLayout
-            android:layout_width="392dp"
-            android:layout_height="171dp"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <CheckBox
+            <RadioButton
+                android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No symmptoms and havn't tested positive"
-                android:textSize="15dp" />
+                android:text="No symmptoms and havn't tested positive" />
 
-            <CheckBox
+            <RadioButton
+                android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Currently self-isolating but not tested positive"
-                android:textSize="15dp" />
+                android:text="Currently self-isolating but not tested positive" />
 
-            <CheckBox
+            <RadioButton
+                android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tested positive for Covid-19 and am self-isolating"
-                android:textSize="15dp" />
-
-        </LinearLayout>
+                android:text="Tested positive for Covid-19 and am self-isolating" />
+        </RadioGroup>
     </LinearLayout>
 
 
