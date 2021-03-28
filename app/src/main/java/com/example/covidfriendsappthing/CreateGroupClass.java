@@ -2,11 +2,13 @@ package com.example.covidfriendsappthing;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +29,8 @@ public class CreateGroupClass extends AppCompatActivity {
     static String user4;
     static String user5;
     static String meetingName;
+    int numOfRed = 0;
+    int numOfOrange = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -228,19 +232,27 @@ public class CreateGroupClass extends AppCompatActivity {
         createMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText meetingNameBox = findViewById(R.id.meeting_name);
-                meetingName = meetingNameBox.getText().toString();
+                if (numOfRed > 0) {
+                    String error = "You can't create this group - " + numOfRed + " people have Covid";
+                    Toast.makeText(CreateGroupClass.this, error, Toast.LENGTH_LONG).show();
+                } else if (numOfOrange > 0) {
+                    String error = "You can't create this group - " + numOfOrange + " people have been in contact with Covid. DOuble check with them first!";
+                    Toast.makeText(CreateGroupClass.this, error, Toast.LENGTH_LONG).show();
+                } else {
+                    EditText meetingNameBox = findViewById(R.id.meeting_name);
+                    meetingName = meetingNameBox.getText().toString();
 
-                Intent newMeeting = new Intent(CreateGroupClass.this, CreatedMeetingActivity.class);
+                    Intent newMeeting = new Intent(CreateGroupClass.this, CreatedMeetingActivity.class);
 
-                newMeeting.putExtra("meetingName", meetingName);
-                newMeeting.putExtra("member1", user1);
-                newMeeting.putExtra("member2", user2);
-                newMeeting.putExtra("member3", user3);
-                newMeeting.putExtra("member4", user4);
-                newMeeting.putExtra("member5", user5);
+                    newMeeting.putExtra("meetingName", meetingName);
+                    newMeeting.putExtra("member1", user1);
+                    newMeeting.putExtra("member2", user2);
+                    newMeeting.putExtra("member3", user3);
+                    newMeeting.putExtra("member4", user4);
+                    newMeeting.putExtra("member5", user5);
 
-                startActivity(newMeeting);
+                    startActivity(newMeeting);
+                }
             }
         });
 
@@ -250,9 +262,11 @@ public class CreateGroupClass extends AppCompatActivity {
         switch (status) {
             case COVID_POSITIVE:
                 person.setImageResource(R.drawable.covid_positive);
+                numOfRed += 1;
                 break;
             case CONTACT_WITH_COVID:
                 person.setImageResource(R.drawable.contact_covid);
+                numOfOrange += 1;
                 break;
             default:
                 person.setImageResource(R.drawable.covid_free);
