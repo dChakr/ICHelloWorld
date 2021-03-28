@@ -9,45 +9,99 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateGroupClass extends AppCompatActivity {
+
+    static String bubble1;
+    static String bubble2;
+    static String bubble3;
+    static String bubble4;
+    static String bubble5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
 
+        Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
+
         ImageButton person1 = findViewById(R.id.Person1);
-        person1.setOnClickListener(view -> {
-            Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
-
-            startActivity(myGroupsIntent);
-        });
-
         ImageButton person2 = findViewById(R.id.Person2);
-        person2.setOnClickListener(view -> {
-            Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
-
-            startActivity(myGroupsIntent);
-        });
-
         ImageButton person3 = findViewById(R.id.Person3);
-        person3.setOnClickListener(view -> {
-            Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
-
-            startActivity(myGroupsIntent);
-        });
-
         ImageButton person4 = findViewById(R.id.Person4);
-        person4.setOnClickListener(view -> {
-            Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
-
-            startActivity(myGroupsIntent);
-        });
-
         ImageButton person5 = findViewById(R.id.Person5);
-        person5.setOnClickListener(view -> {
-            Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
+
+        person1.setOnClickListener(view -> {
+            myGroupsIntent.putExtra("Setter", person1.getId());
 
             startActivity(myGroupsIntent);
         });
+
+
+        person2.setOnClickListener(view -> {
+            myGroupsIntent.putExtra("Setter", person2.getId());
+
+            startActivity(myGroupsIntent);
+        });
+
+
+        person3.setOnClickListener(view -> {
+            myGroupsIntent.putExtra("Setter", person3.getId());
+
+            startActivity(myGroupsIntent);
+        });
+
+
+        person4.setOnClickListener(view -> {
+            myGroupsIntent.putExtra("Setter", person4.getId());
+
+            startActivity(myGroupsIntent);
+        });
+
+
+        person5.setOnClickListener(view -> {
+            myGroupsIntent.putExtra("Setter", person5.getId());
+
+            startActivity(myGroupsIntent);
+        });
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String selFr = extras.getString("Selected");
+
+            int setBubble = extras.getInt("Setter");
+            if (setBubble == person1.getId()) {
+                bubble1 = selFr;
+            }
+            if (setBubble == person2.getId()) {
+                bubble2 = selFr;
+            }
+            if (setBubble == person3.getId()) {
+                bubble3 = selFr;
+            }
+            if (setBubble == person4.getId()) {
+                bubble4 = selFr;
+            }
+            if (setBubble == person5.getId()) {
+                bubble5 = selFr;
+            }
+        }
+
+        if (bubble1 != null) {
+            person1.setVisibility(View.INVISIBLE);
+        }
+        if (bubble2 != null) {
+            person2.setVisibility(View.INVISIBLE);
+        }
+        if (bubble3 != null) {
+            person3.setVisibility(View.INVISIBLE);
+        }
+        if (bubble4 != null) {
+            person4.setVisibility(View.INVISIBLE);
+        }
+        if (bubble5 != null) {
+            person5.setVisibility(View.INVISIBLE);
+        }
+
+
     }
 
 }
