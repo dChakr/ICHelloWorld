@@ -11,15 +11,13 @@
         android:id="@+id/friendlist"
         android:layout_width="404dp"
         android:layout_height="589dp"
-        android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
         android:clickable="true"
         android:footerDividersEnabled="true"
         android:headerDividersEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView"
@@ -34,14 +32,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="397dp"
-        android:layout_height="53dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Choose a friend to be a member of your meeting: "
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="136dp"
+        android:text="Choose a friend to be a member of a meeting:"
         android:textColor="#341963"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toTopOf="@+id/friendlist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
