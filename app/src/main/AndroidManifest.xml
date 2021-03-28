@@ -37,7 +37,7 @@
         </activity>
         <activity
             android:name=".MyGroupsClass"
-            android:label="My Groups"
+            android:label="My Meetings"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -46,7 +46,7 @@
 
         <activity
             android:name=".FriendsClass"
-            android:label="My Groups"
+            android:label="My Friends"
             android:parentActivityName=".CreateGroupClass">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
