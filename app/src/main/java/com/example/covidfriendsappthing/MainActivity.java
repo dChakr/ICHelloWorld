@@ -39,5 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(myGroupsIntent);
         });
+
+        Button logout = (Button) findViewById(R.id.logout_button);
+
+        logout.setOnClickListener(view -> {
+            Intent myGroupsIntent = new Intent(MainActivity.this, UserLoginActivity.class);
+
+            startActivity(myGroupsIntent);
+        });
     }
 }

@@ -215,7 +215,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress3"
+        android:id="@+id/meeting_name"
         android:layout_width="368dp"
         android:layout_height="58dp"
         android:layout_marginStart="23dp"

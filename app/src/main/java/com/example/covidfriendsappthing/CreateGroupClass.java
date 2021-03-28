@@ -2,6 +2,7 @@ package com.example.covidfriendsappthing;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -27,6 +28,9 @@ public class CreateGroupClass extends AppCompatActivity {
         ImageButton person5 = findViewById(R.id.Person5);
 
         Intent myGroupsIntent = new Intent(CreateGroupClass.this, FriendsClass.class);
+
+        EditText meetingNameField= findViewById(R.id.reg_username);
+        String meetingName = meetingNameField.getText().toString();
 
         person1.setOnClickListener(view -> {
             myGroupsIntent.putExtra("Setter", person1.getId());
@@ -111,6 +115,8 @@ public class CreateGroupClass extends AppCompatActivity {
             changeUserCovidStatus(person5, status);
             ((TextView) (findViewById(R.id.person5_name))).setText(user5);
         }
+
+        ((TextView) (findViewById(R.id.meeting_name))).setText(meetingName);
 
     }
 
