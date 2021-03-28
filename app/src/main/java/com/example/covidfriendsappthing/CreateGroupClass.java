@@ -32,15 +32,14 @@ public class CreateGroupClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
 
-        Bundle extra2 = getIntent().getExtras();
-        if (extra2 != null) {
-            user1 = extra2.getString("user1");
-            user2 = extra2.getString("user2");
-            user3 = extra2.getString("user3");
-            user4 = extra2.getString("user4");
-            user5 = extra2.getString("user5");
-        }
-        //FriendsClass.taken = new ArrayList<>();
+//        Bundle extra2 = getIntent().getExtras();
+//        if (extra2 != null) {
+//            user1 = extra2.getString("user1");
+//            user2 = extra2.getString("user2");
+//            user3 = extra2.getString("user3");
+//            user4 = extra2.getString("user4");
+//            user5 = extra2.getString("user5");
+//        }
 
 
         ImageButton person1 = findViewById(R.id.Person1);
